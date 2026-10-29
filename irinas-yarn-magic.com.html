@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irina’s Yarn Magic | Магія затишку та ручної роботи</title>
+    <style>
+        :root {
+            --bg-color: #FAF7F2;
+            --card-bg: #FFFFFF;
+            --accent-color: #D4A373;
+            --accent-hover: #BC8A5F;
+            --accent-light: #FAEDCD;
+            --whatsapp-color: #25D366;
+            --whatsapp-hover: #1EBE5D;
+            --insta-color: #E1306C;
+            --insta-hover: #C13584;
+            --text-main: #4A3E3D;
+            --text-light: #7A6F6D;
+            --border-radius: 24px;
+            --shadow-soft: 0 12px 35px rgba(212, 163, 115, 0.1);
+            --shadow-hover: 0 20px 45px rgba(212, 163, 115, 0.22);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; scroll-behavior: smooth; }
+
+        header {
+            background-color: rgba(250, 247, 242, 0.88); 
+            backdrop-filter: blur(12px);
+            padding: 16px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 100; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            flex-wrap: wrap; gap: 12px;
+        }
+
+        .logo { font-size: 1.6rem; font-weight: 700; color: var(--accent-hover); letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+        .header-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+        .social-btn {
+            color: white; text-decoration: none; padding: 8px 16px;
+            border-radius: 20px; font-weight: 600; font-size: 0.85rem;
+            display: flex; align-items: center; gap: 6px; transition: all 0.3s ease;
+        }
+        .social-btn:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .wa-btn { background-color: var(--whatsapp-color); }
+        .wa-btn:hover { background-color: var(--whatsapp-hover); }
+        .insta-btn { background-color: var(--insta-color); }
+        .insta-btn:hover { background-color: var(--insta-hover); }
+
+        .lang-switch { display: flex; gap: 3px; background: #EFE9E0; padding: 4px; border-radius: 20px; }
+        .lang-btn { border: none; background: none; padding: 5px 12px; border-radius: 16px; cursor: pointer; font-size: 0.8rem; font-weight: 600; color: var(--text-light); transition: all 0.2s; }
+        .lang-btn.active { background: var(--accent-color); color: white; box-shadow: 0 2px 8px rgba(212,163,115,0.3); }
+
+        .cart-btn { background-color: var(--accent-color); color: white; border: none; padding: 9px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s; display: flex; align-items: center; gap: 6px; }
+        .cart-btn:hover { background-color: var(--accent-hover); transform: scale(1.04); box-shadow: 0 4px 15px rgba(212,163,115,0.3); }
+
+        .hero { padding: 60px 20px 40px; background: linear-gradient(135deg, #FAF7F2 0%, #F3ECE1 100%); position: relative; overflow: hidden; }
+        .hero-container { max-width: 1050px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 45px; flex-wrap: wrap; }
+        
+        .author-photo-wrapper { position: relative; }
+        .author-photo-wrapper::after {
+            content: ''; position: absolute; bottom: -10px; right: -10px; width: 100%; height: 100%;
+            border: 3px solid var(--accent-color); border-radius: 28px; z-index: 1; transition: 0.3s;
+        }
+        .author-photo { width: 260px; height: 340px; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-soft); position: relative; z-index: 2; }
+        
+        .hero-text { max-width: 550px; text-align: left; }
+        .hero-text h1 { font-size: 2.5rem; margin-bottom: 14px; color: var(--text-main); font-weight: 700; line-height: 1.2; }
+        .hero-text p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 24px; line-height: 1.7; }
+
+        .contact-info { font-size: 0.95rem; color: var(--text-main); display: flex; gap: 20px; flex-wrap: wrap; background: rgba(255,255,255,0.6); padding: 12px 18px; border-radius: 14px; border: 1px solid #EFE9E0; }
+        .contact-info a { color: var(--accent-hover); text-decoration: none; font-weight: 600; }
+
+        .wave-divider { width: 100%; overflow: hidden; line-height: 0; background: #F3ECE1; }
+        .wave-divider svg { position: relative; display: block; width: calc(100% + 1.3px); height: 50px; }
+        .wave-divider .shape-fill { fill: var(--bg-color); }
+
+        .category-selection { max-width: 1100px; margin: 30px auto 50px; padding: 0 20px; text-align: center; }
+        .category-selection h2 { font-size: 2rem; margin-bottom: 35px; color: var(--text-main); position: relative; display: inline-block; }
+        .category-selection h2::after { content: ''; display: block; width: 40%; height: 3px; background: var(--accent-color); margin: 10px auto 0; border-radius: 2px; }
+
+        .category-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+
+        .category-card {
+            background: var(--card-bg); border: 1px solid #EFE9E0; border-radius: var(--border-radius);
+            padding: 35px 20px; cursor: pointer; transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex; flex-direction: column; align-items: center; gap: 14px; box-shadow: var(--shadow-soft);
+        }
+        .category-card:hover { border-color: var(--accent-color); transform: translateY(-8px); box-shadow: var(--shadow-hover); background: #FFFDF9; }
+        .category-card .icon { font-size: 3rem; transition: transform 0.3s ease; }
+        .category-card:hover .icon { transform: scale(1.2) rotate(-5deg); }
+        .category-card h3 { font-size: 1.2rem; color: var(--text-main); font-weight: 600; }
+
+        .catalog { max-width: 1200px; margin: 40px auto 70px; padding: 0 20px; scroll-margin-top: 100px; }
+        .categories { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+        .category-btn { background: var(--card-bg); border: 1px solid #E0D8CE; padding: 10px 22px; border-radius: 25px; cursor: pointer; color: var(--text-main); font-weight: 600; transition: all 0.3s; }
+        .category-btn.active, .category-btn:hover { background: var(--accent-color); color: white; border-color: var(--accent-color); box-shadow: 0 6px 16px rgba(212, 163, 115, 0.35); transform: translateY(-2px); }
+
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 32px; justify-content: center; }
+        
+        .product-card { 
+            background: var(--card-bg); border-radius: var(--border-radius); overflow: hidden; 
+            box-shadow: var(--shadow-soft); display: flex; flex-direction: column; 
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); position: relative; border: 1px solid #FAF0E6; 
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+
+        .badge-handmade {
+            position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(6px);
+            color: var(--accent-hover); padding: 5px 14px; border-radius: 14px; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.5px; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        .img-wrapper { position: relative; width: 100%; height: 340px; overflow: hidden; background-color: #F7F3EE; touch-action: pan-y; }
+        .product-img { width: 100%; height: 100%; object-fit: cover; user-select: none; transition: transform 0.5s ease; }
+        .product-card:hover .product-img { transform: scale(1.03); }
+
+        .slider-btn {
+            position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.9);
+            color: var(--text-main); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+            font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; justify-content: center; z-index: 5;
+            transition: all 0.2s; box-shadow: 0 3px 12px rgba(0,0,0,0.15); opacity: 0.85;
+        }
+        .slider-btn:hover { background: white; color: var(--accent-hover); opacity: 1; transform: translateY(-50%) scale(1.1); }
+        .slider-prev { left: 12px; }
+        .slider-next { right: 12px; }
+
+        .slider-counter {
+            position: absolute; bottom: 14px; right: 14px; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);
+            color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; z-index: 5;
+        }
+
+        .thumbnails { display: flex; gap: 8px; padding: 12px 16px; background: #FAF7F2; overflow-x: auto; justify-content: center; border-bottom: 1px solid #EFE9E0; }
+        .thumb-img { width: 46px; height: 46px; object-fit: cover; border-radius: 12px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; opacity: 0.65; }
+        .thumb-img.active, .thumb-img:hover { border-color: var(--accent-color); opacity: 1; transform: scale(1.06); }
+
+        .product-info { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: var(--text-main); line-height: 1.35; }
+        .product-desc { font-size: 0.92rem; color: var(--text-light); margin-bottom: 22px; line-height: 1.6; flex-grow: 1; }
+        
+        .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; gap: 12px; }
+
+        .product-price { 
+            font-size: 1.4rem; font-weight: 800; color: var(--accent-hover); background: var(--accent-light);
+            padding: 6px 14px; border-radius: 14px; letter-spacing: -0.5px;
+        }
+
+        .add-to-cart { 
+            background: var(--accent-color); border: none; color: white; padding: 11px 20px; border-radius: 14px; 
+            cursor: pointer; font-weight: 600; font-size: 0.92rem; transition: all 0.3s; display: flex; align-items: center; gap: 8px;
+        }
+        .add-to-cart:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(188, 138, 95, 0.35); }
+
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.55); backdrop-filter: blur(5px); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: white; padding: 35px; border-radius: var(--border-radius); max-width: 500px; width: 90%; max-height: 85vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; border-bottom: 1px solid #EFE9E0; padding-bottom: 12px; }
+        .close-btn { font-size: 1.8rem; cursor: pointer; border: none; background: none; color: var(--text-light); transition: color 0.2s; }
+        .close-btn:hover { color: var(--text-main); }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px dashed #eee; padding-bottom: 12px; }
+        .order-form input, .order-form textarea { width: 100%; padding: 14px; margin-top: 14px; border: 1px solid #E0D8CE; border-radius: 12px; font-size: 0.98rem; outline: none; transition: border-color 0.2s; }
+        .order-form input:focus, .order-form textarea:focus { border-color: var(--accent-color); }
+        .submit-btn { width: 100%; background: var(--whatsapp-color); color: white; border: none; padding: 15px; margin-top: 20px; border-radius: 14px; cursor: pointer; font-size: 1.02rem; font-weight: bold; transition: background 0.2s, transform 0.2s; }
+        .submit-btn:hover { background: var(--whatsapp-hover); transform: translateY(-2px); }
+
+        footer { text-align: center; padding: 40px 20px; background: var(--card-bg); color: var(--text-light); margin-top: 80px; border-top: 1px solid #EFE9E0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🧶 Irina’s Yarn Magic</div>
+        <div class="header-controls">
+            <a href="https://www.instagram.com/irina.s_yarn_magic_ankara?igsh=cmZ2bXFydm1reTR6" target="_blank" class="social-btn insta-btn">📸 Instagram</a>
+            <a href="https://wa.me/380637391183" target="_blank" class="social-btn wa-btn">💬 WhatsApp</a>
+            <div class="lang-switch">
+                <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+                <button class="lang-btn active" onclick="setLanguage('ua')">UA</button>
+                <button class="lang-btn" onclick="setLanguage('ru')">RU</button>
+            </div>
+            <button class="cart-btn" onclick="openCart()"><span id="txt-cart-btn">Кошик</span> (<span id="cart-count">0</span>)</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="author-photo-wrapper">
+                <img src="author.jpg" alt="Майстриня Ірина" class="author-photo" 
+                     onerror="this.onerror=null; this.src='author.jpg.jpg'; if(!this.complete) this.src='author.jpg.jpeg';">
+            </div>
+            <div class="hero-text">
+                <h1 id="txt-hero-title">Магія пряжі та затишні речі</h1>
+                <p id="txt-hero-desc">Вітаю! Мене звати Ірина. Я створюю унікальні вироби ручної роботи: в'язані іграшки, шопери та рюкзаки із поліефірного шнура, ажурні серветки та стильні косинки.</p>
+                <div class="contact-info">
+                    <span>💬 WhatsApp: <a href="https://wa.me/380637391183" target="_blank">+380 63 739 11 83</a></span>
+                    <span>📞 Tel / TR: <a href="tel:+905307437014">+90 530 743 70 14</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
+    <section class="category-selection">
+        <h2 id="txt-select-category">Оберіть розділ каталогу</h2>
+        <div class="category-cards-grid">
+            <div class="category-card" onclick="selectAndScrollCategory('shoppers')">
+                <div class="icon">🎒</div>
+                <h3 id="card-cat-shoppers">Шопери та рюкзаки</h3>
+            </div>
+            <div class="category-card" onclick="selectAndScrollCategory('amigurumi')">
+                <div class="icon">🧸</div>
+                <h3 id="card-cat-amigurumi">Амігурумі</h3>
+            </div>
+            <div class="category-card" onclick="selectAndScrollCategory('kerchiefs')">
+                <div class="icon">🧣</div>
+                <h3 id="card-cat-kerchiefs">Косинки</h3>
+            </div>
+            <div class="category-card" onclick="selectAndScrollCategory('napkins')">
+                <div class="icon">🧶</div>
+                <h3 id="card-cat-napkins">Серветки</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="catalog" id="catalog-section">
+        <div class="categories">
+            <button class="category-btn active" id="btn-cat-all" onclick="filterProducts('all')"><span id="cat-all">Усі</span></button>
+            <button class="category-btn" id="btn-cat-shoppers" onclick="filterProducts('shoppers')"><span id="cat-shoppers">Шопери та рюкзаки</span></button>
+            <button class="category-btn" id="btn-cat-amigurumi" onclick="filterProducts('amigurumi')"><span id="cat-amigurumi">Амігурумі</span></button>
+            <button class="category-btn" id="btn-cat-kerchiefs" onclick="filterProducts('kerchiefs')"><span id="cat-kerchiefs">Косинки</span></button>
+            <button class="category-btn" id="btn-cat-napkins" onclick="filterProducts('napkins')"><span id="cat-napkins">Серветки</span></button>
+        </div>
+
+        <div class="products-grid" id="products"></div>
+    </section>
+
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="txt-cart-title">Ваш кошик</h2>
+                <button class="close-btn" onclick="closeCart()">&times;</button>
+            </div>
+            <div id="cart-items"></div>
+            <h3 style="margin-top: 18px; text-align: right;"><span id="txt-total">Разом</span>: <span id="cart-total">0</span> <span class="currency-symbol">₺</span></h3>
+
+            <form class="order-form" onsubmit="submitOrder(event)">
+                <input type="text" id="cust-name" placeholder="Ваше ім'я" required>
+                <textarea id="cust-comment" placeholder="Коментар до замовлення" rows="3"></textarea>
+                <button type="submit" class="submit-btn" id="txt-submit-btn">Надіслати замовлення у WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Irina’s Yarn Magic. Handcrafted with love & warmth.</p>
+    </footer>
+
+    <script>
+        const whatsappNumber = "380637391183";
+        let currentLang = 'ua';
+
+        const translations = {
+            tr: {
+                heroTitle: 'Örgü Sihri ve Huzurlu Ürünler',
+                heroDesc: "Merhaba! Ben Irina. Sevgiyle el yapımı özel ürünler üretiyorum: örgü oyuncaklar, polyester ip çanta ve sırt çantaları, dantel peçeteler ve şık eşarplar.",
+                selectCategory: 'Kategori Seçiniz',
+                cartBtn: 'Sepet', catAll: 'Tümü', catShoppers: 'Çantalar & Sırt Çantaları', catAmigurumi: 'Amigurumi', catNapkins: 'Peçeteler', catKerchiefs: 'Eşarplar / Bandanalar',
+                addToCart: 'Ekle', cartTitle: 'Sepetiniz', total: 'Toplam', currency: '₺', namePlaceholder: 'Adınız', commentPlaceholder: 'Sipariş notunuz (renk, ölçü vb.)', submitBtn: 'WhatsApp ile Sipariş Ver 💬', emptyCart: 'Sepetiniz boş!', handmadeBadge: 'El Yapımı'
+            },
+            ua: {
+                heroTitle: 'Магія пряжі та затишні речі',
+                heroDesc: "Вітаю! Мене звати Ірина. Я створюю унікальні вироби ручної роботи: в'язані іграшки, шопери та рюкзаки із поліефірного шнура, ажурні серветки та стильні косинки.",
+                selectCategory: 'Оберіть розділ каталогу',
+                cartBtn: 'Кошик', catAll: 'Усі', catShoppers: 'Шопери та рюкзаки', catAmigurumi: 'Амігурумі', catNapkins: 'Серветки', catKerchiefs: 'Косинки',
+                addToCart: '+ Кошик', cartTitle: 'Ваш кошик', total: 'Разом', currency: '₺', namePlaceholder: "Ваше ім'я", commentPlaceholder: 'Коментар до замовлення (колір, параметри)', submitBtn: 'Замовити через WhatsApp 💬', emptyCart: 'Ваш кошик порожній!', handmadeBadge: 'Ручна робота'
+            },
+            ru: {
+                heroTitle: 'Магия пряжи и уютные вещи',
+                heroDesc: 'Здравствуйте! Меня зовут Ирина. Я создаю уникальные изделия ручной работы: вязаные игрушки, шопперы и рюкзаки из полиэфирного шнура, ажурные салфетки и стильные косынки.',
+                selectCategory: 'Выберите раздел каталога',
+                cartBtn: 'Корзина', catAll: 'Все', catShoppers: 'Шопперы и рюкзаки', catAmigurumi: 'Амигуруми', catNapkins: 'Салфетки', catKerchiefs: 'Косынки',
+                addToCart: '+ Корзина', cartTitle: 'Ваша корзина', total: 'Итого', currency: '₺', namePlaceholder: 'Ваше имя', commentPlaceholder: 'Комментарий к заказу (цвет, параметры)', submitBtn: 'Заказать через WhatsApp 💬', emptyCart: 'Ваша корзина пуста!', handmadeBadge: 'Ручная работа'
+            }
+        };
+
+        const products = [
+            {
+                id: 1,
+                category: 'amigurumi',
+                price: 1000,
+                images: ['shrek1.jpg', 'shrek2.jpg', 'shrek3.jpg'],
+                name: { 
+                    tr: 'Sevimli Örgü Shrek', 
+                    ua: 'Чарівний в’язаний Шрек', 
+                    ru: 'Очаровательный вязаный Шрек' 
+                },
+                desc: {
+                    tr: '25 cm boyunda, el emeği göz nuru ile özenle hazırlanmış en tatlı Shrek! Yumuşacık dokusu, ikonik yeleği ve sevimli detaylarıyla hem çocukların kalbini çalacak hem de evinize neşe katacak eşsiz bir parça. Kendinize veya sevdiklerinize unutulmaz bir masal hediyesi!',
+                    ua: 'Справжнє диво ручної роботи — улюблений багатьма чарівний Шрек заввишки 25 см! Зв\'язаний із якісної пряжі з особливою увагою до кожного кроку: від фірмових вушок до затишного жилета й черевичків. Цей добрий казковий велетень подарує море затишку, щирих посмішок та стане найкращим другом і улюбленим талісманом для вас чи вашої дитини!',
+                    ru: 'Настоящее чудо ручной работы — любимый многими обаятельный Шрек высотой 25 см! Связан из качественной пряжи с особой любовью к каждой детали: от фирменных ушек до уютного жилета и ботиночек. Этот добрый сказочный великан подарит море уюта, искренних улыбок и станет самым верным другом и любимым талисманом для вас или вашего ребенка!'
+                }
+            },
+            {
+                id: 2,
+                category: 'kerchiefs',
+                price: 450,
+                images: ['kerchief1.jpg', 'kerchief2.jpg', 'kerchief3.jpg'],
+                name: { 
+                    tr: 'Büyük Püsküllü Parıltılı Örgü Şal / Bandana', 
+                    ua: 'Стильна ажурна косинка-шаль з великими пайєтками', 
+                    ru: 'Стильная ажурная косынка-шаль с большими пайетками' 
+                },
+                desc: {
+                    tr: 'Alize Simli i̇pten zarif el emeği örgü şal / bandana. Üzerindeki büyük göz alıcı payet detayları ve zarif duruşuyla her adımda parlayacak, tarzınıza benzersiz bir zarafet katacak harika bir aksesuar!',
+                    ua: 'Неймовірно жіночна та витончена ажурна косинка-шаль, зв\'язана з люксової пряжі Alize. Край виробу ефектно прикрашений великими сяючими пайєтками, які чарівно переливаються на сонці при кожному русі. Цей трендовий аксесуар ручної роботи подарує вам неперевершений шарм, підкреслить індивідуальність і стане улюбленим акцентом у вашому стилі!',
+                    ru: 'Невероятно женственная и утонченная ажурная косынка-шаль, связанная из люксовой пряжи Alize. Край изделия эффектно украшен большими сияющими пайетками, которые волшебно переливаются на солнце при каждом движении. Этот трендовый аксессуар ручной работы подарит вам неповторимый шарм, подчеркнет индивидуальность и станет любимым акцентом в вашем образе!'
+                }
+            },
+            {
+                id: 3,
+                category: 'amigurumi',
+                price: 1100,
+                images: ['bear1.jpg', 'bear2.jpg'],
+                name: { 
+                    tr: 'Büyük Peluş Ayıcık', 
+                    ua: 'Великий плюшевий ведмедик "Затишок"', 
+                    ru: 'Большой плюшевый мишка "Уют"' 
+                },
+                desc: {
+                    tr: '40 cm boyunda, en yumuşacık kadife ipten sevgiyle örülmüş büyük peluş ayıcık. Şık mavi kurdelesi ve hafif holofiber dolgusu ile sarılmak için mükemmel, sevdiklerinize mutluluk getirecek tatlı bir dev!',
+                    ua: 'Великий і неймовірно затишний плюшевий ведмедик заввишки 40 см із чарівним синім бантиком. Зв\'язаний із найм\'якшої плюшевої пряжі та наповнений легким гіпоалергенним холлофайбером. Це справжнє пухнасте диво створене для міцних обіймів, теплих посмішок і найкращих подарунків для тих, кого ви любите!',
+                    ru: 'Большой и невероятно уютный плюшевый мишка высотой 40 см с очаровательным синим бантом. Связан из мягчайшей плюшевой пряжи и наполнен легким гипоаллергенным холлофайбером. Это настоящее пушистое чудо создано для крепких объятий, теплых улыбок и самых лучших подарков для тех, кого вы любите!'
+                }
+            },
+            {
+                id: 4,
+                category: 'amigurumi',
+                price: 1300,
+                images: ['bunny1.jpg', 'bunny2.jpg', 'bunny3.jpg'],
+                name: { 
+                    tr: 'Yumuşacık Peluş Tavşan', 
+                    ua: 'Плюшевий зайка "Ніжність"', 
+                    ru: 'Плюшевый зайка "Нежность"' 
+                },
+                desc: {
+                    tr: '35 cm boyunda, en yumuşacık kadife ipten sevgiyle örülmüş peluş tavşan. Hipoalerjenik holofiber dolgusu sayesinde sarılmak için inanılmaz yumuşak, sevdikleriniz için mükemmel bir hediye!',
+                    ua: 'Неймовірно м\'який плюшевий зайка заввишки 35 см, створений з любов\'ю для найтепліших обіймів. Завдяки гіпоалергенній плюшевій пряжі та легкому наповнювачу холлофайбер він надзвичайно ніжний на дотик і чудово тримає форму. Ідеальний і затишний подарунок, який принесе щиру радість!',
+                    ru: 'Невероятно мягкий плюшевый зайка высотой 35 см, связанный с любовью для самых теплых объятий. Благодаря гипоаллергенной плюшевой пряже и легкому наполнителю холлофайбер он невероятно нежный на ощупь и прекрасно держит форму. Идеальный и уютный подарок, который подарит искреннюю радость!'
+                }
+            },
+            {
+                id: 5,
+                category: 'amigurumi',
+                price: 300,
+                images: ['panda2.jpg', 'panda3.jpg', 'panda4.jpg'],
+                name: { 
+                    tr: 'Yumuşacık Minik Peluş Panda', 
+                    ua: 'Маленька плюшева панда "Ніжність"', 
+                    ru: 'Маленькая плюшевая панда "Нежность"' 
+                },
+                desc: {
+                    tr: 'Yumuşacık kadife ipten el yapımı, şık mavi kurdeleli minik panda (10 cm). Kucaklamak ve hediye etmek için mükemmel!',
+                    ua: 'Неймовірно м\'яка маленька плюшева панда ручної роботи з яскравим синім бантиком. Висота виробу — 10 см. Ідеальний подарунок для затишку та обіймів!',
+                    ru: 'Невероятно мягкая маленькая плюшевая панда ручной работы с ярким синим бантиком. Высота изделия — 10 см. Идеальный подарок для уюта и объятий!'
+                }
+            },
+            {
+                id: 6,
+                category: 'amigurumi',
+                price: 1200,
+                images: ['pika1.jpg', 'pika2.jpg', 'pika3.jpg'],
+                name: { 
+                    tr: 'Sevimli Örgü Pikachu', 
+                    ua: 'Сонячний Пікачу "Енергія затишку"', 
+                    ru: 'Солнечный Пикачу "Энергия уюта"' 
+                },
+                desc: {
+                    tr: 'Yumuşacık kadife ipten el yapımı, şık kırmızı kurdeleli Pikachu. Hem çocuklar hem de koleksiyon severler için harika bir hediye!',
+                    ua: 'Неймовірно м\'який та яскравий плюшевий Пікачу ручної роботи з червоним атласним бантиком. Дарує щирі посмішки та тепло!',
+                    ru: 'Невероятно мягкий и яркий плюшевый Пикачу ручной работы с красным атласным бантом. Дарит искренние улыбки и тепло!'
+                }
+            },
+            {
+                id: 7,
+                category: 'amigurumi',
+                price: 800,
+                images: ['cow1.jpg', 'cow2.jpg', 'cow3.jpg'],
+                name: { 
+                    tr: 'Çiçekli Peluş İnek "Güneş"', 
+                    ua: 'Плюшева корівка "Соняшник"', 
+                    ru: 'Плюшевая коровка "Подсолнух"' 
+                },
+                desc: {
+                    tr: 'Yumuşacık kadife ipten el yapımı sevimli inek (20 cm). Kafasındaki el örgüsü ayçiçeği tacı ve sıcacık gülümsemesiyle evinize neşe katacak harika bir hediye!',
+                    ua: 'Неймовірно ніжна та м\'яка плюшева корівка ручної роботи з квітучим віночком із соняшників (20 см). Дарує відчуття тепла, затишку та щирих посмішок!',
+                    ru: 'Невероятно нежная и мягкая плюшевая коровка ручной работы с веночком из ярких подсолнухов (20 см). Настоящий лучик тепла и уюта для вас и ваших близких!'
+                }
+            },
+            {
+                id: 8,
+                category: 'amigurumi',
+                price: 1200,
+                images: ['stitch1.jpg', 'stitch2.jpg', 'stitch3.jpg'],
+                name: { 
+                    tr: 'Peluş Stitch "Uzaylı Dostu"', 
+                    ua: 'Плюшевий Стіч "Космічний затишок"', 
+                    ru: 'Плюшевый Стич "Космический уют"' 
+                },
+                desc: {
+                    tr: 'Yumuşacık kadife ipten el yapımı sevimli Stitch (30 cm). Şık mor kurdelesi ve eğlenceli duruşuyla hem çocuklar hem de çizgi film severler için harika bir hediye!',
+                    ua: 'Неймовірно м\'який та яскравий плюшевий Стіч ручної роботи з фіолетовим бантиком (30 см). Улюблений герой, який дарує море позитиву, посмішок та обіймів!',
+                    ru: 'Невероятно мягкий и яркий плюшевый Стич ручной работы с фиолетовым бантом (30 см). Любимый герой, который подарит море позитива, теплых улыбок и уюта!'
+                }
+            },
+            {
+                id: 9,
+                category: 'shoppers',
+                price: 1500,
+                images: ['bag1.jpg', 'bag2.jpg', 'bag3.jpg', 'bag4.jpg', 'bag5.jpg'],
+                name: { 
+                    tr: 'El Yapımı Örgü Sırt Çantası "Kahve Düşleri"', 
+                    ua: 'В\'язаний міні-рюкзак "Шоколадний шарм"', 
+                    ru: 'Вязаный мини-рюкзак "Шоколадный шарм"' 
+                },
+                desc: {
+                    tr: 'Dayanıklı polyester ipten el yapımı kompakt sırt çantası (24 cm). Şık deri tabanı, ince zarif örgü askıları ve kaliteli astarı ile hem hafif hem de günlük stiliniz için kusursuz bir seçim!',
+                    ua: 'Вишуканий компактний рюкзак ручної роботи (24 см) із міцного поліефірного шнура глибокого шоколадного відтінку. Практичне шкіряне денце, витончені тоненькі плетені ремінці та акуратна підкладка — ідеальний стиль на щодня!',
+                    ru: 'Изысканный компактный рюкзак ручной работы (24 см) из прочного полиэфирного шнура глубокого шоколадного оттенка. Практичное кожаное донышко, утонченные тоненькие плетеные ремешки и аккуратная подкладка — идеальный стиль на каждый день!'
+                }
+            }
+        ];
+
+        let cart = [];
+        let activeCategory = 'all';
+        let currentImageIndices = {};
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.innerText.toLowerCase() === lang));
+            const t = translations[lang];
+            document.getElementById('txt-hero-title').innerText = t.heroTitle;
+            document.getElementById('txt-hero-desc').innerText = t.heroDesc;
+            document.getElementById('txt-select-category').innerText = t.selectCategory;
+            document.getElementById('txt-cart-btn').innerText = t.cartBtn;
+            
+            document.getElementById('cat-all').innerText = t.catAll;
+            document.getElementById('cat-shoppers').innerText = t.catShoppers;
+            document.getElementById('cat-amigurumi').innerText = t.catAmigurumi;
+            document.getElementById('cat-kerchiefs').innerText = t.catKerchiefs;
+            document.getElementById('cat-napkins').innerText = t.catNapkins;
+
+            document.getElementById('card-cat-shoppers').innerText = t.catShoppers;
+            document.getElementById('card-cat-amigurumi').innerText = t.catAmigurumi;
+            document.getElementById('card-cat-kerchiefs').innerText = t.catKerchiefs;
+            document.getElementById('card-cat-napkins').innerText = t.catNapkins;
+
+            document.getElementById('txt-cart-title').innerText = t.cartTitle;
+            document.getElementById('txt-total').innerText = t.total;
+            document.getElementById('txt-submit-btn').innerText = t.submitBtn;
+            document.getElementById('cust-name').placeholder = t.namePlaceholder;
+            document.getElementById('cust-comment').placeholder = t.commentPlaceholder;
+            document.querySelectorAll('.currency-symbol').forEach(el => el.innerText = t.currency);
+            
+            filterProducts(activeCategory);
+            updateCart();
+        }
+
+        function selectAndScrollCategory(category) {
+            filterProducts(category);
+            document.getElementById('catalog-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleImgFallback(imgEl, originalSrc) {
+            if (!imgEl.dataset.tried) {
+                imgEl.dataset.tried = "1";
+                imgEl.src = originalSrc.replace('.jpg', '.JPG');
+            } else if (imgEl.dataset.tried === "1") {
+                imgEl.dataset.tried = "2";
+                imgEl.src = originalSrc.replace('.jpg', '.jpeg');
+            } else if (imgEl.dataset.tried === "2") {
+                imgEl.dataset.tried = "3";
+                imgEl.src = originalSrc.replace('.jpg', '.png');
+            }
+        }
+
+        function changeSlide(productId, direction) {
+            if (currentImageIndices[productId] === undefined) {
+                currentImageIndices[productId] = 0;
+            }
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            currentImageIndices[productId] += direction;
+
+            if (currentImageIndices[productId] >= product.images.length) {
+                currentImageIndices[productId] = 0;
+            } else if (currentImageIndices[productId] < 0) {
+                currentImageIndices[productId] = product.images.length - 1;
+            }
+
+            updateProductView(productId);
+        }
+
+        function changeImage(productId, idx) {
+            currentImageIndices[productId] = idx;
+            updateProductView(productId);
+        }
+
+        function updateProductView(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            const idx = currentImageIndices[productId] || 0;
+
+            const imgEl = document.getElementById(`main-img-${productId}`);
+            const counterEl = document.getElementById(`slide-counter-${productId}`);
+
+            if (imgEl) {
+                imgEl.dataset.tried = "";
+                imgEl.src = product.images[idx];
+            }
+            if (counterEl) {
+                counterEl.innerText = `${idx + 1}/${product.images.length}`;
+            }
+
+            const card = document.getElementById(`product-card-${productId}`);
+            if (card) {
+                card.querySelectorAll('.thumb-img').forEach((thumb, i) => {
+                    thumb.classList.toggle('active', i === idx);
+                });
+            }
+        }
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+
+        function handleTouchEnd(e, productId) {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 40) {
+                changeSlide(productId, 1);
+            }
+            if (touchEndX > touchStartX + 40) {
+                changeSlide(productId, -1);
+            }
+        }
+
+        function renderProducts(items) {
+            const container = document.getElementById('products');
+            const t = translations[currentLang];
+            if (items.length === 0) {
+                container.innerHTML = `<p style="grid-column: 1/-1; padding: 40px; color: var(--text-light); font-size: 1.1rem; text-align: center;">У цьому розділі поки немає товарів. Вони з'являться зовсім скоро! ✨</p>`;
+                return;
+            }
+            container.innerHTML = items.map(p => {
+                if (currentImageIndices[p.id] === undefined) {
+                    currentImageIndices[p.id] = 0;
+                }
+                const activeIdx = currentImageIndices[p.id];
+
+                return `
+                <div class="product-card" id="product-card-${p.id}">
+                    <span class="badge-handmade">✨ ${t.handmadeBadge}</span>
+                    <div class="img-wrapper" 
+                         ontouchstart="handleTouchStart(event)" 
+                         ontouchend="handleTouchEnd(event, ${p.id})">
+                        <button class="slider-btn slider-prev" onclick="changeSlide(${p.id}, -1)">❮</button>
+                        <img id="main-img-${p.id}" 
+                             src="${p.images[activeIdx]}" 
+                             alt="${p.name[currentLang]}" 
+                             class="product-img"
+                             onerror="handleImgFallback(this, '${p.images[activeIdx]}')">
+                        <button class="slider-btn slider-next" onclick="changeSlide(${p.id}, 1)">❯</button>
+                        <div class="slider-counter" id="slide-counter-${p.id}">${activeIdx + 1}/${p.images.length}</div>
+                    </div>
+                    <div class="thumbnails">
+                        ${p.images.map((imgSrc, idx) => `
+                            <img src="${imgSrc}" 
+                                 class="thumb-img ${idx === activeIdx ? 'active' : ''}" 
+                                 onclick="changeImage(${p.id}, ${idx})"
+                                 onerror="handleImgFallback(this, '${imgSrc}')">
+                        `).join('')}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">${p.name[currentLang]}</div>
+                        <div class="product-desc">${p.desc[currentLang]}</div>
+                        <div class="product-footer">
+                            <div class="product-price">${p.price} ${t.currency}</div>
+                            <button class="add-to-cart" onclick="addToCart(${p.id})">
+                                🛒 <span>${t.addToCart}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;}).join('');
+        }
+
+        function filterProducts(category) {
+            activeCategory = category;
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-cat-${category}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            if (category === 'all') renderProducts(products);
+            else renderProducts(products.filter(p => p.category === category));
+        }
+
+        function addToCart(id) { cart.push(products.find(p => p.id === id)); updateCart(); }
+
+        function updateCart() {
+            const t = translations[currentLang];
+            document.getElementById('cart-count').innerText = cart.length;
+            document.getElementById('cart-items').innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <span>${item.name[currentLang]}</span>
+                    <span><strong>${item.price} ${t.currency}</strong> <button style="color:red; cursor:pointer; border:none; background:none; font-weight:bold; margin-left:8px;" onclick="removeFromCart(${index})">✕</button></span>
+                </div>
+            `).join('');
+            document.getElementById('cart-total').innerText = cart.reduce((sum, item) => sum + item.price, 0);
+        }
+
+        function removeFromCart(index) { cart.splice(index, 1); updateCart(); }
+        function openCart() { document.getElementById('cart-modal').style.display = 'flex'; }
+        function closeCart() { document.getElementById('cart-modal').style.display = 'none'; }
+
+        function submitOrder(e) {
+            e.preventDefault();
+            const t = translations[currentLang];
+            if (cart.length === 0) { alert(t.emptyCart); return; }
+            const name = document.getElementById('cust-name').value;
+            const comment = document.getElementById('cust-comment').value;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            let itemsText = cart.map(item => `- ${item.name[currentLang]} (${item.price} ${t.currency})`).join('\n');
+            let message = currentLang === 'tr' ? `Merhaba! Irina’s Yarn Magic'den sipariş vermek istiyorum:\n\n${itemsText}\n\nToplam: ${total} ${t.currency}\nİsim: ${name}`
+                : currentLang === 'ua' ? `Доброго дня! Я хочу зробити замовлення в Irina’s Yarn Magic:\n\n${itemsText}\n\nРазом: ${total} ${t.currency}\nІм'я: ${name}`
+                : `Здравствуйте! Я хочу сделать заказ в Irina’s Yarn Magic:\n\n${itemsText}\n\nИтого: ${total} ${t.currency}\nИмя: ${name}`;
+            if (comment) message += currentLang === 'tr' ? `\nNot: ${comment}` : currentLang === 'ua' ? `\nКоментар: ${comment}` : `\nКомментарий: ${comment}`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            cart = []; updateCart(); closeCart();
+        }
+
+        setLanguage('ua');
+        filterProducts('all');
+    </script>
+</body>
+</html>
