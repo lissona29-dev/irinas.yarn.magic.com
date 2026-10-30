@@ -656,7 +656,7 @@
         <div class="hero-content">
             <h1 class="hero-title" id="txt-hero-title">Магія пряжі та затишні речі</h1>
             <div class="hero-subtitle">Авторські вироби ручної роботи</div>
-            <p class="hero-desc" id="txt-hero-desc">Вітаю! Мене звати Ірина. Я створюю унікальні вироби ручної роботи: авторські кардигани, топи, в'язані іграшки, шопери та рюкзаки із поліефірного шнура, ажурні серветки та стильні косинки.</p>
+            <p class="hero-desc" id="txt-hero-desc">Вітаю! Мене звати Ірина. Я створюю унікальні вироби ручної роботи: в'язані іграшки, шопери та рюкзаки із поліефірного шнура, ажурні серветки та стильні косинки.</p>
             <div class="contact-info">
                 <span>💬 WhatsApp: <a href="https://wa.me/380637391183" target="_blank">+380 63 739 11 83</a></span>
                 <span>📞 Tel / TR: <a href="tel:+905307437014">+90 530 743 70 14</a></span>
@@ -667,17 +667,13 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
+    <!-- Categories Section (без одежды) -->
     <section class="categories-section">
         <h2 class="section-title-main" id="txt-select-category">Оберіть розділ каталогу</h2>
         <div class="categories-grid">
             <div class="category-card active-cat" onclick="filterProducts('all', this)">
                 <div class="category-icon-wrap"><i class="fa-solid fa-border-all"></i></div>
                 <span id="cat-all">Усі товари</span>
-            </div>
-            <div class="category-card" onclick="filterProducts('clothes', this)">
-                <div class="category-icon-wrap"><i class="fa-solid fa-shirt"></i></div>
-                <span id="cat-clothes">Одяг</span>
             </div>
             <div class="category-card" onclick="filterProducts('shoppers', this)">
                 <div class="category-icon-wrap"><i class="fa-solid fa-bag-shopping"></i></div>
@@ -734,90 +730,38 @@
         const translations = {
             tr: {
                 heroTitle: 'Örgü Sihri ve Huzurlu Ürünler',
-                heroDesc: "Merhaba! Ben Irina. Sevgiyle el yapımı özel ürünler üretiyorum: örgü hırkalar, üst giyim, çanta ve sırt çantaları, örgü oyuncaklar ve şık eşarplar.",
+                heroDesc: "Merhaba! Ben Irina. Sevgiyle el yapımı özel ürünler üretiyorum: örgü oyuncaklar, polyester ip çanta ve sırt çantaları, dantel peçeteler ve şık eşarplar.",
                 selectCategory: 'Kategori Seçiniz',
-                cartBtn: 'Sepet', catAll: 'Tümü', catClothes: 'Giyim', catShoppers: 'Çantalar & Sırt Çantaları', catAmigurumi: 'Amigurumi', catNapkins: 'Peçeteler', catKerchiefs: 'Eşarplar',
+                cartBtn: 'Sepet', catAll: 'Tümü', catShoppers: 'Çantalar & Sırt Çantaları', catAmigurumi: 'Amigurumi', catNapkins: 'Peçeteler', catKerchiefs: 'Eşarplar',
                 addToCart: 'Ekle', cartTitle: 'Sepetiniz', total: 'Toplam', currency: '₺', namePlaceholder: 'Adınız', commentPlaceholder: 'Sipariş notunuz (renk, ölçü vb.)', submitBtn: 'WhatsApp ile Sipariş Ver 💬', emptyCart: 'Sepetiniz boş!', handmadeBadge: 'El Yapımı'
             },
             ua: {
                 heroTitle: 'Магія пряжі та затишні речі',
-                heroDesc: "Вітаю! Мене звати Ірина. Я створюю унікальні вироби ручної роботи: авторські кардигани, топи, в'язані іграшки, шопери та рюкзаки, ажурні серветки та стильні косинки.",
+                heroDesc: "Вітаю! Мене звати Ірина. Я створюю унікальні вироби ручної роботи: в'язані іграшки, шопери та рюкзаки із поліефірного шнура, ажурні серветки та стильні косинки.",
                 selectCategory: 'Оберіть розділ каталогу',
-                cartBtn: 'Кошик', catAll: 'Усі товари', catClothes: 'Одяг', catShoppers: 'Сумки і рюкзаки', catAmigurumi: 'Амігурумі', catNapkins: 'Серветки', catKerchiefs: 'Косинки',
+                cartBtn: 'Кошик', catAll: 'Усі товари', catShoppers: 'Сумки і рюкзаки', catAmigurumi: 'Амігурумі', catNapkins: 'Серветки', catKerchiefs: 'Косинки',
                 addToCart: '+ Кошик', cartTitle: 'Ваш кошик', total: 'Разом', currency: '₺', namePlaceholder: "Ваше ім'я", commentPlaceholder: 'Коментар до замовлення (колір, параметри)', submitBtn: 'Замовити через WhatsApp 💬', emptyCart: 'Ваш кошик порожній!', handmadeBadge: 'Ручна робота'
             },
             ru: {
                 heroTitle: 'Магия пряжи и уютные вещи',
-                heroDesc: 'Здравствуйте! Меня зовут Ирина. Я создаю уникальные изделия ручной работы: авторские кардиганы, топы, вязаные игрушки, шопперы и рюкзаки, ажурные салфетки и стильные косынки.',
+                heroDesc: 'Здравствуйте! Меня зовут Ирина. Я создаю уникальные изделия ручной работы: вязаные игрушки, шопперы и рюкзаки из полиэфирного шнура, ажурные салфетки и стильные косынки.',
                 selectCategory: 'Выберите раздел каталога',
-                cartBtn: 'Корзина', catAll: 'Все товары', catClothes: 'Одежда', catShoppers: 'Сумки и рюкзаки', catAmigurumi: 'Амигуруми', catNapkins: 'Салфетки', catKerchiefs: 'Косынки',
+                cartBtn: 'Корзина', catAll: 'Все товары', catShoppers: 'Сумки и рюкзаки', catAmigurumi: 'Амигуруми', catNapkins: 'Салфетки', catKerchiefs: 'Косынки',
                 addToCart: '+ Корзина', cartTitle: 'Ваша корзина', total: 'Итого', currency: '₺', namePlaceholder: 'Ваше имя', commentPlaceholder: 'Комментарий к заказу (цвет, параметры)', submitBtn: 'Заказать через WhatsApp 💬', emptyCart: 'Ваша корзина пуста!', handmadeBadge: 'Ручная работа'
             }
         };
 
-        /* Полный список ВСЕХ ваших товаров */
+        /* Список товаров (только сумки/рюкзаки, амигуруми и косынки) */
         const products = [
-            /* ОДЕЖДА */
-            {
-                id: 10, category: 'clothes', price: 2800,
-                images: ['f1.jpeg'],
-                name: { tr: 'Altıgen Örgü Hırka', ua: 'Шестикутний оверсайз кардиган', ru: 'Шестиугольный оверсайз кардиган' },
-                desc: {
-                    tr: 'İki büyük altıgen motiften örülmüş, özel tasarım şık ve sıcak tutan hırka.',
-                    ua: 'Стильний та затишний кардиган ручної роботи, зв\'язаний з двох класичних шестикутників.',
-                    ru: 'Стильный и уютный кардиган ручной работы, связанный из двух классических шестиугольников.'
-                }
-            },
-            {
-                id: 11, category: 'clothes', price: 2200,
-                images: ['f1.jpeg'],
-                name: { tr: 'Zarif Beyaz Dantel Hırka', ua: 'Білий ажурний кардиган', ru: 'Белый ажурный кардиган' },
-                desc: {
-                    tr: 'Nefes alan zarif örgü desenli, her kombine uyan beyaz hırka.',
-                    ua: 'Ніжний та вишуканий білий ажурний кардиган ручної роботи з ґудзиками.',
-                    ru: 'Нежный и изысканный белый ажурный кардиган ручной работы на пуговицах.'
-                }
-            },
-            {
-                id: 12, category: 'clothes', price: 1800,
-                images: ['f1.jpeg'],
-                name: { tr: 'Bej Örgü Bluz / Top', ua: 'В\'язаний бежевий топ / блуза', ru: 'Вязаный бежевый топ / блуза' },
-                desc: {
-                    tr: 'Yaz ve sonbahar için mükemmel, zarif örgü bluz.',
-                    ua: 'Елегантний в\'язаний топ бежевого кольору з квадратним вирізом та об\'ємними рукавами.',
-                    ru: 'Элегантный вязаный топ бежевого цвета с квадратным вырезом и объемными рукавами.'
-                }
-            },
-
-            /* СУМКИ И РЮКЗАКИ */
+            /* СУМКИ И РЮКЗАКИ (оставлен ваш рюкзак) */
             {
                 id: 9, category: 'shoppers', price: 1700,
                 images: ['bag1.jpg', 'bag2.jpg', 'bag3.jpg', 'bag4.jpg', 'bag5.jpg'],
                 name: { tr: 'El Yapımı Örgü Sırt Çantası', ua: 'В\'язаний міні-рюкзак ручної роботи', ru: 'Вязаный мини-рюкзак ручной работы' },
                 desc: {
                     tr: 'Dayanıklı polyester ipten el yapımı kompakt sırt çantası (24 cm).',
-                    ua: 'Вишуканий компактний рюкзак ручної роботи (24 см) із міцного шнура з шкіряним денцем.',
-                    ru: 'Изысканный компактный рюкзак ручной работы (24 см) из прочного шнура с кожаным донышком.'
-                }
-            },
-            {
-                id: 13, category: 'shoppers', price: 1600,
-                images: ['f1.jpeg'],
-                name: { tr: 'Ayçiçeği Detaylı Örgü Çanta', ua: 'В\'язана сумка "Соняшник"', ru: 'Вязаная сумка "Подсолнух"' },
-                desc: {
-                    tr: 'Sıcak kahverengi tonda, el örgüsü canlı ayçiçeği motifli şık çanta.',
-                    ua: 'Екологічна та стильна сумка з яскравим соняшником ручної роботи.',
-                    ru: 'Экологичная и стильная сумка с ярким подсолнухом ручной работы.'
-                }
-            },
-            {
-                id: 14, category: 'shoppers', price: 1650,
-                images: ['f1.jpeg'],
-                name: { tr: 'Kahverengi El Yapımı Örgü Sırt Çantası', ua: 'Коричневий в\'язаний рюкзак', ru: 'Коричневый вязаный рюкзак' },
-                desc: {
-                    tr: 'Özel tokalı ve el yapımı kaliteli kahverengi sırt çantası.',
-                    ua: 'Зручний в\'язаний рюкзак глибокого коричневого кольору з надійною фурнітурою.',
-                    ru: 'Удобный вязаный рюкзак глубокого коричневого цвета с надежной фурнитурой.'
+                    ua: 'Вишуканий компактний рюкзак ручної роботи (24 cm) із міцного шнура з шкіряним денцем.',
+                    ru: 'Изысканный компактный рюкзак ручной работы (24 cm) из прочного шнура с кожаным донышком.'
                 }
             },
 
@@ -896,7 +840,7 @@
             /* КОСЫНКИ */
             {
                 id: 2, category: 'kerchiefs', price: 450,
-                images: ['kerchief1.jpg', 'kerchief2.jpg', 'kerchief3.jpg', 'f1.jpeg'],
+                images: ['kerchief1.jpg', 'kerchief2.jpg', 'kerchief3.jpg'],
                 name: { tr: 'Büyük Püsküllü Parıltılı Örgü Şal', ua: 'Ажурна косинка-шаль з пайетками', ru: 'Ажурная косынка-шаль с пайетками' },
                 desc: {
                     tr: 'Alize Simli i̇pten zarif el emeği örgü şal / bandana.',
@@ -919,7 +863,6 @@
             document.getElementById('txt-cart-btn').innerText = t.cartBtn;
             
             document.getElementById('cat-all').innerText = t.catAll;
-            if(document.getElementById('cat-clothes')) document.getElementById('cat-clothes').innerText = t.catClothes;
             document.getElementById('cat-shoppers').innerText = t.catShoppers;
             document.getElementById('cat-amigurumi').innerText = t.catAmigurumi;
             document.getElementById('cat-kerchiefs').innerText = t.catKerchiefs;
