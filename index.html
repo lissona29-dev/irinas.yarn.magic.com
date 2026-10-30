@@ -227,51 +227,99 @@
             object-fit: cover;
         }
 
-        /* Categories Section */
+        /* Categories Section (как на вашем скриншоте) */
         .categories-section {
-            padding: 20px 5% 50px 5%;
+            padding: 30px 5%;
             max-width: 1300px;
             margin: 0 auto;
         }
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
         }
 
         .category-card {
-            background-color: #F3E7E0;
+            background-color: var(--white);
             border-radius: 20px;
-            padding: 15px;
+            padding: 18px 10px;
             text-align: center;
             text-decoration: none;
             color: var(--text-main);
-            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(194, 115, 125, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #F0E4DE;
         }
 
         .category-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-soft);
         }
 
-        .category-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 15px;
-            object-fit: cover;
-            margin-bottom: 10px;
+        .category-icon-wrap {
+            width: 46px;
+            height: 46px;
+            background-color: #F7ECE8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px auto;
+            color: var(--primary-rose);
+            font-size: 18px;
         }
 
         .category-card span {
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             display: block;
+            line-height: 1.3;
+        }
+
+        /* Features Bar (Нижняя панель с преимуществами как на фото) */
+        .features-bar {
+            max-width: 1300px;
+            margin: 20px auto 40px auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(194, 115, 125, 0.04);
+            border: 1px solid #F0E4DE;
+        }
+
+        .feature-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 5px 10px;
+        }
+
+        .feature-box i {
+            font-size: 22px;
+            color: var(--primary-rose);
+        }
+
+        .feature-box div {
+            font-size: 12px;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        .feature-box strong {
+            font-size: 13px;
+            display: block;
+            margin-bottom: 2px;
         }
 
         /* Section Title */
         .section-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin: 40px 0;
             position: relative;
         }
 
@@ -578,31 +626,67 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
+    <!-- Categories Section (с круглыми иконками как на фото) -->
     <section class="categories-section">
         <div class="categories-grid">
             <a href="#catalog" class="category-card">
-                <img src="bag1.jpg" alt="Сумки">
+                <div class="category-icon-wrap"><i class="fa-solid fa-bag-shopping"></i></div>
                 <span>Сумки и рюкзаки</span>
             </a>
             <a href="#catalog" class="category-card">
-                <img src="shrek1.jpg" alt="Амигуруми">
+                <div class="category-icon-wrap"><i class="fa-solid fa-hippo"></i></div>
                 <span>Амигуруми</span>
             </a>
             <a href="#catalog" class="category-card">
-                <img src="kerchief1.jpg" alt="Косынки">
+                <div class="category-icon-wrap"><i class="fa-solid fa-gem"></i></div>
                 <span>Косынки</span>
             </a>
             <a href="#catalog" class="category-card">
-                <img src="bag4.jpg" alt="Салфетки">
+                <div class="category-icon-wrap"><i class="fa-solid fa-house"></i></div>
                 <span>Салфетки</span>
             </a>
             <a href="#catalog" class="category-card">
-                <img src="bag5.jpg" alt="Кардиганы">
+                <div class="category-icon-wrap"><i class="fa-solid fa-shirt"></i></div>
                 <span>Кардиганы и одежда</span>
+            </a>
+            <a href="#catalog" class="category-card">
+                <div class="category-icon-wrap"><i class="fa-solid fa-gift"></i></div>
+                <span>Подарки и другое</span>
             </a>
         </div>
     </section>
+
+    <!-- Features Bar (Преимущества как на фото) -->
+    <div class="features-bar">
+        <div class="feature-box">
+            <i class="fa-solid fa-gem"></i>
+            <div>
+                <strong>Авторский дизайн и качество</strong>
+                Уникальная ручная работа
+            </div>
+        </div>
+        <div class="feature-box">
+            <i class="fa-solid fa-heart"></i>
+            <div>
+                <strong>Сделано с любовью</strong>
+                В каждый товар вложена душа
+            </div>
+        </div>
+        <div class="feature-box">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div>
+                <strong>Быстрая доставка</strong>
+                По всей Турции
+            </div>
+        </div>
+        <div class="feature-box">
+            <i class="fa-solid fa-shield-heart"></i>
+            <div>
+                <strong>Удобная оплата</strong>
+                Безопасный заказ
+            </div>
+        </div>
+    </div>
 
     <!-- Popular Products Grid -->
     <section class="products-section" id="catalog">
