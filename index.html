@@ -272,8 +272,8 @@
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
         }
 
         .category-card {
@@ -651,7 +651,7 @@
         </div>
     </header>
 
-    <!-- Hero Banner (с Вашим фото f1.jpeg) -->
+    <!-- Hero Banner (с Фото f1.jpeg в шапке) -->
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title" id="txt-hero-title">Магія пряжі та затишні речі</h1>
@@ -667,7 +667,7 @@
         </div>
     </section>
 
-    <!-- Categories Section (без одежды) -->
+    <!-- Categories Section (Без Одежды!) -->
     <section class="categories-section">
         <h2 class="section-title-main" id="txt-select-category">Оберіть розділ каталогу</h2>
         <div class="categories-grid">
@@ -751,17 +751,17 @@
             }
         };
 
-        /* Список товаров (только сумки/рюкзаки, амигуруми и косынки) */
+        /* Список товаров (Только ваш фирменный рюкзак, амигуруми и косынки) */
         const products = [
-            /* СУМКИ И РЮКЗАКИ (оставлен ваш рюкзак) */
+            /* СУМКИ И РЮКЗАКИ */
             {
                 id: 9, category: 'shoppers', price: 1700,
                 images: ['bag1.jpg', 'bag2.jpg', 'bag3.jpg', 'bag4.jpg', 'bag5.jpg'],
                 name: { tr: 'El Yapımı Örgü Sırt Çantası', ua: 'В\'язаний міні-рюкзак ручної роботи', ru: 'Вязаный мини-рюкзак ручной работы' },
                 desc: {
                     tr: 'Dayanıklı polyester ipten el yapımı kompakt sırt çantası (24 cm).',
-                    ua: 'Вишуканий компактний рюкзак ручної роботи (24 cm) із міцного шнура з шкіряним денцем.',
-                    ru: 'Изысканный компактный рюкзак ручной работы (24 cm) из прочного шнура с кожаным донышком.'
+                    ua: 'Вишуканий компактний рюкзак ручної роботи (24 см) із міцного шнура з шкіряним денцем.',
+                    ru: 'Изысканный компактный рюкзак ручной работы (24 см) из прочного шнура с кожаным донышком.'
                 }
             },
 
