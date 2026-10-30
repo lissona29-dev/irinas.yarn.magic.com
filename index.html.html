@@ -97,15 +97,11 @@
         }
 
         .logo-icon {
-            width: 45px;
-            height: 45px;
-            background-color: var(--primary-rose);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
+            object-fit: cover;
+            border: 2px solid var(--primary-rose);
         }
 
         .logo-text {
@@ -549,7 +545,7 @@
     <!-- Header Navigation -->
     <header>
         <a href="#" class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-yarn"></i></div>
+            <img src="logo.jpeg" alt="Logo" class="logo-icon" onerror="this.onerror=null; this.src='logo.jpg';">
             <div class="logo-text">Irina’s Yarn Magic</div>
         </a>
         <nav>
@@ -578,7 +574,7 @@
             <a href="#catalog" class="btn-primary">Перейти в каталог &rarr;</a>
         </div>
         <div class="hero-image-container">
-            <img src="bag1.jpg" alt="Вязаная сумка">
+            <img src="f1.jpeg" alt="Авторские изделия Ирина">
         </div>
     </section>
 
@@ -590,11 +586,11 @@
                 <span>Сумки и рюкзаки</span>
             </a>
             <a href="#catalog" class="category-card">
-                <img src="bag2.jpg" alt="Амигуруми">
+                <img src="shrek1.jpg" alt="Амигуруми">
                 <span>Амигуруми</span>
             </a>
             <a href="#catalog" class="category-card">
-                <img src="bag3.jpg" alt="Косынки">
+                <img src="kerchief1.jpg" alt="Косынки">
                 <span>Косынки</span>
             </a>
             <a href="#catalog" class="category-card">
@@ -603,7 +599,7 @@
             </a>
             <a href="#catalog" class="category-card">
                 <img src="bag5.jpg" alt="Кардиганы">
-                <span>Кардиганы</span>
+                <span>Кардиганы и одежда</span>
             </a>
         </div>
     </section>
@@ -615,12 +611,12 @@
         </div>
 
         <div class="products-grid">
-            <!-- Product Card 1 -->
+            <!-- Product Card 1: Рюкзак -->
             <div class="product-card">
                 <div class="like-btn"><i class="fa-regular fa-heart"></i></div>
-                <img src="bag1.jpg" alt="Сумка из шнура" class="product-img">
-                <div class="product-title">Сумка ручной работы из шнура</div>
-                <div class="product-price">1 200 TL</div>
+                <img src="bag1.jpg" alt="Рюкзак из шнура" class="product-img">
+                <div class="product-title">Вязаный мини-рюкзак ручной работы</div>
+                <div class="product-price">1 500 TL</div>
                 <div class="product-stock">● В наличии</div>
                 <div class="product-actions">
                     <button class="btn-cart">В корзину</button>
@@ -628,12 +624,12 @@
                 </div>
             </div>
 
-            <!-- Product Card 2 -->
+            <!-- Product Card 2: Амигуруми (Шрек) -->
             <div class="product-card">
                 <div class="like-btn"><i class="fa-regular fa-heart"></i></div>
-                <img src="bag2.jpg" alt="Вязаная сумочка" class="product-img">
-                <div class="product-title">Стильная сумочка ручной вязки</div>
-                <div class="product-price">850 TL</div>
+                <img src="shrek1.jpg" alt="Игрушка амигуруми Шрек" class="product-img">
+                <div class="product-title">Чарівний в’язаний Шрек (Амигуруми)</div>
+                <div class="product-price">1 000 TL</div>
                 <div class="product-stock">● В наличии</div>
                 <div class="product-actions">
                     <button class="btn-cart">В корзину</button>
@@ -641,12 +637,12 @@
                 </div>
             </div>
 
-            <!-- Product Card 3 -->
+            <!-- Product Card 3: Косынка (Ваше фото) -->
             <div class="product-card">
                 <div class="like-btn"><i class="fa-regular fa-heart"></i></div>
-                <img src="bag3.jpg" alt="Плечевая сумка" class="product-img">
-                <div class="product-title">Ажурная вязаная сумка</div>
-                <div class="product-price">750 TL</div>
+                <img src="kerchief1.jpg" alt="Косынка с пайетками" class="product-img">
+                <div class="product-title">Ажурная косынка-шаль с пайетками</div>
+                <div class="product-price">450 TL</div>
                 <div class="product-stock">● В наличии</div>
                 <div class="product-actions">
                     <button class="btn-cart">В корзину</button>
@@ -654,12 +650,12 @@
                 </div>
             </div>
 
-            <!-- Product Card 4 -->
+            <!-- Product Card 4: Плюшевый мишка -->
             <div class="product-card">
                 <div class="like-btn"><i class="fa-regular fa-heart"></i></div>
-                <img src="bag4.jpg" alt="Кардиган" class="product-img">
-                <div class="product-title">Вязаная сумка-шоппер</div>
-                <div class="product-price">2 200 TL</div>
+                <img src="bear1.jpg" alt="Плюшевый мишка" class="product-img">
+                <div class="product-title">Большой плюшевый мишка «Затишок»</div>
+                <div class="product-price">1 100 TL</div>
                 <div class="product-stock">● В наличии</div>
                 <div class="product-actions">
                     <button class="btn-cart">В корзину</button>
@@ -672,7 +668,7 @@
     <!-- About Section -->
     <section class="about-section" id="about">
         <div class="about-container">
-            <img src="author.jpg.jpeg" alt="Ирина" class="about-img">
+            <img src="author.jpg.jpeg" alt="Ирина" class="about-img" onerror="this.onerror=null; this.src='author.jpg';">
             <div class="about-content">
                 <h2 class="about-title">О Irina’s Yarn Magic</h2>
                 <p class="about-desc">
@@ -698,7 +694,7 @@
             <div class="cta-title">Создайте уют с Irina’s Yarn Magic ♡</div>
             <p>Оформите заказ прямо сейчас в мессенджере!</p>
         </div>
-        <a href="https://wa.me/" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Заказать в WhatsApp</a>
+        <a href="https://wa.me/380637391183" target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Заказать в WhatsApp</a>
     </section>
 
     <!-- Footer -->
@@ -707,11 +703,10 @@
             <div class="logo-text">Irina’s Yarn Magic</div>
         </a>
         <div class="social-links">
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/irina.s_yarn_magic_ankara" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/380637391183" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <div>С любовью ♡</div>
+        <div>С любовью ♡ 2026</div>
     </footer>
 
 </body>
