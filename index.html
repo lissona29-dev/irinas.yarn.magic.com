@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Irina’s Yarn Magic | Магія затишку та ручної роботи</title>
-    <!-- Подключаем иконки Font Awesome для категорий -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -85,17 +84,17 @@
         .category-selection h2 { font-size: 2rem; margin-bottom: 35px; color: var(--text-main); position: relative; display: inline-block; }
         .category-selection h2::after { content: ''; display: block; width: 40%; height: 3px; background: var(--accent-color); margin: 10px auto 0; border-radius: 2px; }
 
-        .category-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .category-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
 
         .category-card {
             background: var(--card-bg); border: 1px solid #EFE9E0; border-radius: var(--border-radius);
-            padding: 30px 20px; cursor: pointer; transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            padding: 35px 20px; cursor: pointer; transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex; flex-direction: column; align-items: center; gap: 14px; box-shadow: var(--shadow-soft);
         }
-        .category-card:hover, .category-card.active-cat { border-color: var(--accent-color); transform: translateY(-8px); box-shadow: var(--shadow-hover); background: #FFFDF9; }
+        .category-card:hover, .category-card.active-card { border-color: var(--accent-color); transform: translateY(-8px); box-shadow: var(--shadow-hover); background: #FFFDF9; }
         .category-card .icon { font-size: 3rem; transition: transform 0.3s ease; }
         .category-card:hover .icon { transform: scale(1.2) rotate(-5deg); }
-        .category-card h3 { font-size: 1.1rem; color: var(--text-main); font-weight: 600; }
+        .category-card h3 { font-size: 1.2rem; color: var(--text-main); font-weight: 600; }
 
         .catalog { max-width: 1200px; margin: 40px auto 70px; padding: 0 20px; scroll-margin-top: 100px; }
         .categories { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
@@ -210,7 +209,7 @@
         </svg>
     </div>
 
-    <!-- Кликабельные карточки категорий -->
+    <!-- Красивые карточки категорий с иконками -->
     <section class="category-selection">
         <h2 id="txt-select-category">Оберіть розділ каталогу</h2>
         <div class="category-cards-grid">
@@ -234,7 +233,7 @@
     </section>
 
     <section class="catalog" id="catalog-section">
-        <div class="categories">
+        <div class="categories" style="display:none;">
             <button class="category-btn active" id="btn-cat-all" onclick="filterProducts('all', this)"><span id="cat-all">Усі</span></button>
             <button class="category-btn" id="btn-cat-shoppers" onclick="filterProducts('shoppers', this)"><span id="cat-shoppers">Шопери та рюкзаки</span></button>
             <button class="category-btn" id="btn-cat-amigurumi" onclick="filterProducts('amigurumi', this)"><span id="cat-amigurumi">Амігурумі</span></button>
@@ -307,7 +306,7 @@
                     ru: 'Очаровательный вязаный Шрек' 
                 },
                 desc: {
-                    tr: '25 cm boyunda, el emeği göz nuru ile özenle hazırlanmış en tatlı Shrek!',
+                    tr: '25 cm boyunda, el emeği göz nuru ile özenle hazırlanmış en tatlası Shrek!',
                     ua: 'Справжнє диво ручної роботи — улюблений багатьма чарівний Шрек заввишки 25 см!',
                     ru: 'Настоящее чудо ручной работы — любимый многими обаятельный Шрек высотой 25 см!'
                 }
@@ -454,12 +453,6 @@
             document.getElementById('txt-select-category').innerText = t.selectCategory;
             document.getElementById('txt-cart-btn').innerText = t.cartBtn;
             
-            document.getElementById('cat-all').innerText = t.catAll;
-            document.getElementById('cat-shoppers').innerText = t.catShoppers;
-            document.getElementById('cat-amigurumi').innerText = t.catAmigurumi;
-            document.getElementById('cat-kerchiefs').innerText = t.catKerchiefs;
-            document.getElementById('cat-napkins').innerText = t.catNapkins;
-
             document.getElementById('card-cat-shoppers').innerText = t.catShoppers;
             document.getElementById('card-cat-amigurumi').innerText = t.catAmigurumi;
             document.getElementById('card-cat-kerchiefs').innerText = t.catKerchiefs;
@@ -478,10 +471,10 @@
         function filterProducts(category, element) {
             currentCategory = category;
             
-            // Подсветка активной кнопки в каталоге
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            if(element && element.classList.contains('category-btn')) {
-                element.classList.add('active');
+            // Подсветка активной карточки категории
+            document.querySelectorAll('.category-card').forEach(card => card.classList.remove('active-card'));
+            if(element) {
+                element.classList.add('active-card');
             }
 
             renderProducts();
@@ -628,7 +621,7 @@
             window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
         }
 
-        // Первоначальный рендер каталога
+        // По умолчанию при открытии показываем все товары
         renderProducts();
     </script>
 </body>
