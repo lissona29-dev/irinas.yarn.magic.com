@@ -1102,8 +1102,7 @@
             modal.style.display = 'none';
         }
     }
-
-  <!-- Модальное окно для увеличения фото -->
+<!-- Модальное окно для увеличения фото -->
     <div id="imageModal" class="image-modal" onclick="closeImageModal()">
         <img id="modalImage" src="" alt="Zoomed product">
     </div>
@@ -1133,23 +1132,6 @@
             const imgSrc = e.target.src;
             if (imgSrc) {
                 openImageModal(imgSrc);
-            }
-        }
-    });
-    </script>
-    }
-
-    // Функция закрытия при клике
-    function closeImageModal() {
-        document.getElementById('imageModal').style.display = 'none';
-    }
-
-    // Автоматически делаем все картинки товаров кликабельными
-    document.addEventListener('click', function(e) {
-        if (e.target.tagName === 'IMG' && e.target.id !== 'modalImage') {
-            // Исключаем логотип или мелкие иконки, если они есть (проверяем, что это картинка товара)
-            if (e.target.src.includes('.jpg') || e.target.src.includes('.png')) {
-                openImageModal(e.target.src);
             }
         }
     });
