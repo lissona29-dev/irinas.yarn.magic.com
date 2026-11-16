@@ -1078,15 +1078,14 @@
 
         // Запуск при загрузке
         renderProducts();
-    </script>
- </script>
- <!-- Модальное окно для увеличения фото -->
+     </script></script>
+
+    <!-- Модальное окно для увеличения фото -->
     <div id="imageModal" class="image-modal" onclick="closeImageModal()">
         <img id="modalImage" src="" alt="Zoomed product">
     </div>
-
-    <script>
-    // Функция открытия фото на весь экран
+ <script>
+    // 1. Функция открытия фото на весь экран
     function openImageModal(imgSrc) {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
@@ -1096,7 +1095,7 @@
         }
     }
 
-    // Функция закрытия при клике
+    // 2. Функция закрытия при клике на фон или картинку
     function closeImageModal() {
         const modal = document.getElementById('imageModal');
         if (modal) {
@@ -1104,8 +1103,9 @@
         }
     }
 
-    // Универсальный перехват кликов по всем картинкам на сайте
+    // 3. Автоматический клик по любой картинке товара на сайте
     document.addEventListener('click', function(e) {
+        // Если кликнули на картинку (и это не сама картинка внутри модального окна)
         if (e.target.tagName === 'IMG' && !e.target.closest('#imageModal')) {
             const imgSrc = e.target.src;
             if (imgSrc) {
@@ -1114,6 +1114,7 @@
         }
     });
     </script>
-    </script>
+</body>
+</html>
 </body>
 </html>
