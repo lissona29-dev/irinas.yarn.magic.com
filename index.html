@@ -1079,30 +1079,8 @@
         // Запуск при загрузке
         renderProducts();
     </script>
+ </script>
  <!-- Модальное окно для увеличения фото -->
-    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
-        <img id="modalImage" src="" alt="Zoomed product">
-    </div>
-
-    <script>
-    // Функция открытия фото на весь экран
-    function openImageModal(imgSrc) {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        if (modal && modalImg) {
-            modal.style.display = 'flex';
-            modalImg.src = imgSrc;
-        }
-    }
-
-    // Функция закрытия при клике
-    function closeImageModal() {
-        const modal = document.getElementById('imageModal');
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    }
-<!-- Модальное окно для увеличения фото -->
     <div id="imageModal" class="image-modal" onclick="closeImageModal()">
         <img id="modalImage" src="" alt="Zoomed product">
     </div>
@@ -1135,6 +1113,7 @@
             }
         }
     });
+    </script>
     </script>
 </body>
 </html>
