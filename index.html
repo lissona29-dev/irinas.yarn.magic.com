@@ -278,8 +278,9 @@
         /* Trust & Features Section */
         .features-section {
             max-width: 1300px;
-            margin: 35px auto 10px;
+            margin: 40px auto 15px;
             padding: 0 5%;
+            text-align: center;
         }
 
         .features-grid {
@@ -797,8 +798,51 @@
             <img src="f1.jpeg" alt="Майстриня Ірина в авторських виробах">
         </div>
     </section>
+<!-- Categories Section (Без Одежды!) -->
+    <!-- Trust & Features Section -->
+    <section class="features-section">
+        <h2 class="section-title-main" id="txt-why-title">Чому обирають Irina’s Yarn Magic</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="feature-text">
+                    <h4 id="feat-1-title">100% ручна робота в Анкарі</h4>
+                    <p id="feat-1-desc">Унікальність кожної петлі та тепло рук майстра у кожній сумці, іграшці чи серветці</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="feature-text">
+                    <h4 id="feat-2-title">Преміальний шнур та пряжа</h4>
+                    <p id="feat-2-desc">Сумки ідеально тримають форму, а плюшеві іграшки та косинки залишаються ніжними роками</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-award"></i></div>
+                <div class="feature-text">
+                    <h4 id="feat-3-title">Фірмова шкіряна бірка</h4>
+                    <p id="feat-3-desc">Знак авторської якості та індивідуального стилю Irina’s Yarn Magic на ваших виробах</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
+                <div class="feature-text">
+                    <h4 id="feat-4-title">Індивідуальний повтор</h4>
+                    <p id="feat-4-desc">Зв'яжу будь-яку сумку, іграшку чи аксесуар у вашому улюбленому кольорі та потрібному розмірі</p>
+                </div>
+            </div>
+        </div>
 
-    <!-- Categories Section (Без Одежды!) -->
+        <div class="custom-note-bar">
+            <div class="custom-note-text">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span id="feat-custom-note">Бажаєте інший колір чи розмір? Просто напишіть про це майстру — і я зв'яжу виріб спеціально для вас!</span>
+            </div>
+            <a href="https://wa.me/380637391183?text=Вітаю!%20Хочу%20обговорити%20індивідуальне%20замовлення%20(колір/розмір)" target="_blank" class="custom-note-link" id="feat-custom-btn">
+                <i class="fa-brands fa-whatsapp"></i> Написати майстру
+            </a>
+        </div>
+    </section>
     <section class="categories-section">
         <h2 class="section-title-main" id="txt-select-category">Оберіть розділ каталогу</h2>
         <div class="categories-grid">
@@ -862,6 +906,17 @@
             tr: {
                 heroTitle: 'Örgü Sihri ve Huzurlu Ürünler',
                 heroDesc: "Merhaba! Ben Irina. Sevgiyle el yapımı özel ürünler üretiyorum: örgü oyuncaklar, polyester ip çanta ve sırt çantaları, dantel peçeteler ve şık eşarplar.",
+                whyTitle: 'Neden Irina’s Yarn Magic?',
+                feat1Title: "Ankara'da %100 El Emeği",
+                feat1Desc: 'Her ilmeği özenle işlenen benzersiz çantalar, oyuncaklar ve el örgüsü tasarımlar',
+                feat2Title: 'Premium Kordon & İplik',
+                feat2Desc: 'Formunu kusursuz koruyan çantalar ve yıllarca yumuşacık kalan peluş oyuncaklar',
+                feat3Title: 'Özel Deri Marka Etiketi',
+                feat3Desc: "Ürünlerinizde Irina’s Yarn Magic özgün tasarım ve el işçiliği kalitesinin imzası",
+                feat4Title: 'Kişiye Özel Üretim',
+                feat4Desc: 'İstediğiniz çanta, oyuncak veya aksesuarı dilediğiniz renk ve ölçüde özel olarak örüyorum',
+                featCustomNote: 'Farklı bir renk veya ölçü mü istiyorsunuz? Sadece yazın, sizin için özel olarak öreyim!',
+                featCustomBtn: 'Ustaya Yazın',
                 selectCategory: 'Kategori Seçiniz',
                 cartBtn: 'Sepet', catAll: 'Tümü', catShoppers: 'Çantalar & Sırt Çantaları', catAmigurumi: 'Amigurumi', catNapkins: 'Peçeteler', catKerchiefs: 'Eşarplar',
                 addToCart: 'Ekle', cartTitle: 'Sepetiniz', total: 'Toplam', currency: '₺', namePlaceholder: 'Adınız', commentPlaceholder: 'Sipariş notunuz (renk, ölçü vb.)', submitBtn: 'WhatsApp ile Sipariş Ver 💬', emptyCart: 'Sepetiniz boş!', handmadeBadge: 'El Yapımı'
@@ -869,6 +924,17 @@
             ua: {
                 heroTitle: 'Магія пряжі та затишні речі',
                 heroDesc: "Вітаю! Мене звати Ірина. Я створюю унікальні вироби ручної роботи: в'язані іграшки, шопери та рюкзаки із поліефірного шнура, ажурні серветки та стильні косинки.",
+                whyTitle: 'Чому обирають Irina’s Yarn Magic',
+                feat1Title: '100% ручна робота в Анкарі',
+                feat1Desc: 'Унікальність кожної петлі та тепло рук майстра у кожній сумці, іграшці чи серветці',
+                feat2Title: 'Преміальний шнур та пряжа',
+                feat2Desc: 'Сумки ідеально тримають форму, а плюшеві іграшки та косинки залишаються ніжними роками',
+                feat3Title: 'Фірмова шкіряна бірка',
+                feat3Desc: 'Знак авторської якості та індивідуального стилю Irina’s Yarn Magic на ваших виробах',
+                feat4Title: 'Індивідуальний повтор',
+                feat4Desc: "Зв'яжу будь-яку сумку, іграшку чи аксесуар у вашому улюбленому кольорі та потрібному розмірі",
+                featCustomNote: "Бажаєте інший колір чи розмір? Просто напишіть про це майстру — і я зв'яжу виріб спеціально для вас!",
+                featCustomBtn: 'Написати майстру',
                 selectCategory: 'Оберіть розділ каталогу',
                 cartBtn: 'Кошик', catAll: 'Усі товари', catShoppers: 'Сумки і рюкзаки', catAmigurumi: 'Амігурумі', catNapkins: 'Серветки', catKerchiefs: 'Косинки',
                 addToCart: '+ Кошик', cartTitle: 'Ваш кошик', total: 'Разом', currency: '₺', namePlaceholder: "Ваше ім'я", commentPlaceholder: 'Коментар до замовлення (колір, параметри)', submitBtn: 'Замовити через WhatsApp 💬', emptyCart: 'Ваш кошик порожній!', handmadeBadge: 'Ручна робота'
@@ -876,6 +942,17 @@
             ru: {
                 heroTitle: 'Магия пряжи и уютные вещи',
                 heroDesc: 'Здравствуйте! Меня зовут Ирина. Я создаю уникальные изделия ручной работы: вязаные игрушки, шопперы и рюкзаки из полиэфирного шнура, ажурные салфетки и стильные косынки.',
+                whyTitle: 'Почему выбирают Irina’s Yarn Magic',
+                feat1Title: '100% ручная работа в Анкаре',
+                feat1Desc: 'Уникальность каждой петли и тепло рук мастера в каждой сумке, игрушке или салфетке',
+                feat2Title: 'Премиальный шнур и пряжа',
+                feat2Desc: 'Сумки идеально держат форму, а плюшевые игрушки и косынки остаются нежными годами',
+                feat3Title: 'Фирменная кожаная бирка',
+                feat3Desc: 'Знак авторского качества и индивидуального стиля Irina’s Yarn Magic на ваших изделиях',
+                feat4Title: 'Индивидуальный повтор',
+                feat4Desc: 'Свяжу любую сумку, игрушку или аксессуар в вашем любимом цвете и нужном размере',
+                featCustomNote: 'Хотите другой цвет или размер? Просто напишите об этом мастеру — и я свяжу изделие специально для вас!',
+                featCustomBtn: 'Написать мастеру',
                 selectCategory: 'Выберите раздел каталога',
                 cartBtn: 'Корзина', catAll: 'Все товары', catShoppers: 'Сумки и рюкзаки', catAmigurumi: 'Амигуруми', catNapkins: 'Салфетки', catKerchiefs: 'Косынки',
                 addToCart: '+ Корзина', cartTitle: 'Ваша корзина', total: 'Итого', currency: '₺', namePlaceholder: 'Ваше имя', commentPlaceholder: 'Комментарий к заказу (цвет, параметры)', submitBtn: 'Заказать через WhatsApp 💬', emptyCart: 'Ваша корзина пуста!', handmadeBadge: 'Ручная работа'
@@ -1033,6 +1110,17 @@
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.innerText.toLowerCase() === lang));
             const t = translations[lang];
             document.getElementById('txt-hero-title').innerText = t.heroTitle;
+            document.getElementById('txt-why-title').innerText = t.whyTitle;
+            document.getElementById('feat-1-title').innerText = t.feat1Title;
+            document.getElementById('feat-1-desc').innerText = t.feat1Desc;
+            document.getElementById('feat-2-title').innerText = t.feat2Title;
+            document.getElementById('feat-2-desc').innerText = t.feat2Desc;
+            document.getElementById('feat-3-title').innerText = t.feat3Title;
+            document.getElementById('feat-3-desc').innerText = t.feat3Desc;
+            document.getElementById('feat-4-title').innerText = t.feat4Title;
+            document.getElementById('feat-4-desc').innerText = t.feat4Desc;
+            document.getElementById('feat-custom-note').innerText = t.featCustomNote;
+            document.getElementById('feat-custom-btn').innerHTML = `<i class="fa-brands fa-whatsapp"></i> ${t.featCustomBtn}`;
             document.getElementById('txt-hero-desc').innerText = t.heroDesc;
             document.getElementById('txt-select-category').innerText = t.selectCategory;
             document.getElementById('txt-cart-btn').innerText = t.cartBtn;
