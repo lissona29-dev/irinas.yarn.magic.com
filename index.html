@@ -263,6 +263,106 @@
         }
 
         /* Categories Section */
+        /* Trust & Features Section */
+        .features-section {
+            max-width: 1300px;
+            margin: 35px auto 10px;
+            padding: 0 5%;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid #F0E4DE;
+            border-radius: 18px;
+            padding: 20px 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            box-shadow: 0 4px 15px rgba(194, 115, 125, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            border-radius: 12px;
+            background: #F7ECE8;
+            color: var(--primary-rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .feature-text h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.25;
+        }
+
+        .feature-text p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .custom-note-bar {
+            margin-top: 16px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F7ECE8 100%);
+            border: 1px dashed var(--primary-rose);
+            border-radius: 16px;
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .custom-note-text {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .custom-note-text i {
+            color: var(--primary-rose);
+            font-size: 1.1rem;
+        }
+
+        .custom-note-link {
+            background: var(--primary-rose);
+            color: var(--white);
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .custom-note-link:hover {
+            background: var(--primary-rose-hover);
+            transform: translateY(-1px);
+        }
         .categories-section {
             padding: 40px 5% 20px;
             max-width: 1300px;
